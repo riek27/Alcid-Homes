@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcadia Homes | Luxury Custom Home Builders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800&family=Lato:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS PROVIDED BY CLIENT - NO CHANGES */
+        :root {
+            --charcoal: #2c2c2c;
+            --gold: #bfa06b;
+            --white: #ffffff;
+            --beige: #f5f2ed;
+            --light-gray: #f8f8f8;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+        }
+
+        nav ul li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+
+        /* ========== PREMIUM ENHANCEMENTS ========== */
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(191, 160, 107, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: var(--gold);
+        }
+        
+        /* Page Loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+        
+        .loader-logo span {
+            color: var(--gold);
+        }
+        
+        .loader-bar {
+            width: 300px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(191, 160, 107, 0.5);
+            border-radius: 50%;
+        }
+        
+        /* HERO SECTION - Enhanced */
+        .hero {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        
+        .hero-headline {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            min-height: 180px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .hero-headline strong {
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .hero-headline strong::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.8s ease;
+        }
+        
+        .hero-headline strong.animate::after {
+            transform: scaleX(1);
+        }
+        
+        .typing-text {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .typing-text::after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+            animation: blink 1s infinite;
+            color: var(--gold);
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .hero-subheading {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 2.5s;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-buttons .btn {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-buttons .btn:nth-child(1) {
+            animation-delay: 3s;
+        }
+        
+        .hero-buttons .btn:nth-child(2) {
+            animation-delay: 3.3s;
+        }
+        
+        .hero-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .hero-buttons .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Animated Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: var(--white);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 4s;
+        }
+        
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background-color: rgba(255,255,255,0.5);
+            margin: 10px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: var(--gold);
+            animation: scrollLine 2s infinite ease-in-out;
+        }
+        
+        @keyframes scrollLine {
+            0% { top: -30px; }
+            70% { top: 100%; }
+            100% { top: 100%; }
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 300;
+        }
+        
+        .section-title h2 strong {
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Animated Underline */
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .animated-underline:hover::after {
+            width: 100%;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.2rem;
+            background-color: var(--charcoal);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--gold);
+            transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            color: var(--charcoal);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--charcoal);
+        }
+        
+        .btn-gold::before {
+            background-color: var(--charcoal);
+        }
+        
+        .btn-gold:hover {
+            color: var(--white);
+        }
+        
+        /* ABOUT SECTION - Premium */
+        .about {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 1s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .about-image:hover::after {
+            top: 15px;
+            left: 15px;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* SERVICES SECTION - Premium */
+        .services {
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+            opacity: 0;
+            transform: translateY(40px) rotateX(10deg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), #d4b483);
+            z-index: 2;
+        }
+        
+        .service-icon {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        
+        .service-card:hover .service-icon img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--charcoal);
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .service-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .service-link::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .service-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* PORTFOLIO SECTION - Premium */
+        .portfolio {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            padding: 0.7rem 2rem;
+            background-color: transparent;
+            border: 1px solid var(--charcoal);
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-radius: 30px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--charcoal);
+            transition: width 0.4s ease;
+            z-index: -1;
+            border-radius: 30px;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--white);
+        }
+        
+        .filter-btn.active::before, .filter-btn:hover::before {
+            width: 100%;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 350px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(44, 44, 44, 0.95) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: var(--white);
+            opacity: 0;
+            transition: all 0.6s ease;
+            transform: translateY(20px);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+        }
+        
+        .portfolio-overlay p {
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.2s;
+            opacity: 0.8;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay h3,
+        .portfolio-item:hover .portfolio-overlay p {
+            transform: translateY(0);
+        }
+        
+        .portfolio-zoom {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-zoom {
+            transform: scale(1);
+        }
+        
+        /* Portfolio Modal */
+        .portfolio-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .portfolio-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--charcoal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background-color: var(--gold);
+        }
+        
+        /* BLOG SECTION - Premium */
+        .blog {
+            position: relative;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+            position: relative;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-date {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-link::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* TESTIMONIALS SECTION - Premium */
+        .testimonials {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.3;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .testimonial-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            color: var(--charcoal);
+            position: relative;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .testimonial-quote::before, .testimonial-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            position: absolute;
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .testimonial-quote::before {
+            top: -20px;
+            left: -40px;
+        }
+        
+        .testimonial-quote::after {
+            bottom: -60px;
+            right: -40px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--charcoal);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-role {
+            color: #777;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+        
+        .slider-btn {
+            background-color: var(--charcoal);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .slider-btn:hover {
+            background-color: var(--gold);
+            transform: scale(1.1);
+        }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .dot.active {
+            background-color: var(--gold);
+            transform: scale(1.3);
+        }
+        
+        /* FAQ SECTION - Premium */
+        .faq {
+            position: relative;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.8rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .faq-question:hover {
+            color: var(--gold);
+        }
+        
+        .faq-question i {
+            transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            color: var(--gold);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 0 2rem 0;
+            line-height: 1.7;
+            color: #666;
+        }
+        
+        /* CONTACT SECTION - Premium */
+        .contact {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 3rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.8rem;
+        }
+        
+        .contact-detail i {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-detail:hover i {
+            transform: scale(1.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            color: #777;
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            pointer-events: none;
+            background-color: transparent;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            transition: all 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 5px 15px rgba(191, 160, 107, 0.1);
+        }
+        
+        .form-group.focused label,
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 0;
+            font-size: 0.8rem;
+            color: var(--gold);
+            background-color: var(--light-gray);
+            padding: 0 8px;
+        }
+        
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn .btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1rem;
+        }
+        
+        /* FOOTER - Premium */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo span {
+            color: var(--gold);
+        }
+        
+        .footer-about p {
+            opacity: 0.7;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-left: 0;
+            transition: padding-left 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.4s ease;
+            font-size: 1.1rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 1200px) {
+            .hero-headline {
+                font-size: 3.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.7rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-headline {
+                font-size: 3.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                order: 2;
+            }
+            
+            .about-text {
+                order: 1;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
+                display: none;
+            }
+            
+            .dropdown-parent:hover .dropdown {
+                display: block;
+            }
+            
+            .hero-headline {
+                font-size: 2.5rem;
+                min-height: 140px;
+            }
+            
+            .hero-subheading {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.5rem;
+            }
+            
+            .testimonial-quote::before {
+                left: -20px;
+            }
+            
+            .testimonial-quote::after {
+                right: -20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-headline {
+                font-size: 2rem;
+                min-height: 120px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">Arcadia<span>Homes</span></div>
+            <div class="loader-bar">
+                <div class="loader-progress" id="loaderProgress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">Arcadia<span>Homes</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="nav-link animated-underline">Home</a></li>
+                    <li class="dropdown-parent">
+                        <a href="#about" class="nav-link animated-underline">About <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#about">Our Team</a></li>
+                            <li><a href="#about">Our Process</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-parent">
+                        <a href="#services" class="nav-link animated-underline">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#services">Custom Home Building</a></li>
+                            <li><a href="#services">Architectural Design</a></li>
+                            <li><a href="#services">Renovation & Remodeling</a></li>
+                            <li><a href="#services">Interior Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#portfolio" class="nav-link animated-underline">Portfolio</a></li>
+                    <li><a href="#blog" class="nav-link animated-underline">Blog</a></li>
+                    <li><a href="#testimonials" class="nav-link animated-underline">Testimonials</a></li>
+                    <li><a href="#faq" class="nav-link animated-underline">FAQs</a></li>
+                    <li><a href="#contact" class="nav-link animated-underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Home) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-headline">
+                <span class="typing-text" id="typingText"></span>
+            </h1>
+            <p class="hero-subheading">Bespoke homes designed with precision and passion.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn">View Portfolio</a>
+                <a href="#contact" class="btn btn-gold">Start Your Project</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to Explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About <strong>Us</strong></h2>
+                <p>Discover our story, passion, and commitment to excellence</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Crafting Dream Homes for Over Two Decades</h3>
+                    <p>At Arcadia Homes, we believe that your home should be a reflection of your unique vision and lifestyle. For more than 20 years, we've been transforming dreams into reality, building luxury custom homes that stand the test of time.</p>
+                    <p>Our approach combines architectural expertise with artisanal craftsmanship, ensuring every detail is executed to perfection. We work closely with you throughout the entire process, from initial concept to final walkthrough.</p>
+                    <div class="about-stats">
+                        <div class="stat-item stagger-item">
+                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-text">Projects Completed</div>
+                        </div>
+                        <div class="stat-item stagger-item">
+                            <div class="stat-number" data-count="20">0</div>
+                            <div class="stat-text">Years Experience</div>
+                        </div>
+                        <div class="stat-item stagger-item">
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-text">Awards Won</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Luxury home interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <strong>Services</strong></h2>
+                <p>Comprehensive solutions for your dream home journey</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Custom Home Building">
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom Home Building</h3>
+                        <p>From concept to completion, we build one-of-a-kind homes that reflect your unique style and needs.</p>
+                        <a href="#" class="service-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Architectural Design">
+                    </div>
+                    <div class="service-content">
+                        <h3>Architectural Design</h3>
+                        <p>Innovative designs that blend aesthetics with functionality, creating spaces that inspire.</p>
+                        <a href="#" class="service-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Renovation & Remodeling">
+                    </div>
+                    <div class="service-content">
+                        <h3>Renovation & Remodeling</h3>
+                        <p>Transform your existing space into your dream home with our expert renovation services.</p>
+                        <a href="#" class="service-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <strong>Portfolio</strong></h2>
+                <p>A showcase of our finest custom home projects</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="modern">Modern</button>
+                <button class="filter-btn" data-filter="traditional">Traditional</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="modern">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Modern Villa">
+                    <div class="portfolio-overlay">
+                        <h3>Seaside Modern Villa</h3>
+                        <p>Malibu, California</p>
+                    </div>
+                    <div class="portfolio-zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="traditional">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Traditional Estate">
+                    <div class="portfolio-overlay">
+                        <h3>Classic Country Estate</h3>
+                        <p>Greenwich, Connecticut</p>
+                    </div>
+                    <div class="portfolio-zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="luxury">
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80" alt="Luxury Penthouse">
+                    <div class="portfolio-overlay">
+                        <h3>Skyline Penthouse</h3>
+                        <p>Manhattan, New York</p>
+                    </div>
+                    <div class="portfolio-zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <img src="" alt="" id="modalImage">
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest <strong>Insights</strong></h2>
+                <p>Design trends, tips, and inspiration from our experts</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80" alt="Sustainable Design">
+                        <div class="blog-date">May 15, 2023</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                            <span><i class="far fa-comment"></i> 12 Comments</span>
+                        </div>
+                        <h3>Sustainable Luxury: Building Green Without Compromise</h3>
+                        <div class="blog-excerpt">
+                            <p>Discover how modern technology allows us to create environmentally friendly homes that don't sacrifice luxury or comfort.</p>
+                        </div>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Kitchen Trends">
+                        <div class="blog-date">April 22, 2023</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                            <span><i class="far fa-comment"></i> 8 Comments</span>
+                        </div>
+                        <h3>2023 Kitchen Design Trends: What's In & What's Out</h3>
+                        <div class="blog-excerpt">
+                            <p>From smart appliances to bold color choices, explore the latest trends transforming kitchen spaces this year.</p>
+                        </div>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Outdoor Living">
+                        <div class="blog-date">March 10, 2023</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                            <span><i class="far fa-comment"></i> 15 Comments</span>
+                        </div>
+                        <h3>Expanding Your Living Space: Outdoor Design Ideas</h3>
+                        <div class="blog-excerpt">
+                            <p>Create seamless transitions between indoor and outdoor spaces with these innovative design concepts.</p>
+                        </div>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client <strong>Testimonials</strong></h2>
+                <p>Hear what our clients have to say about their experience</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slides" id="testimonialSlides">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-quote">
+                            "Arcadia Homes transformed our vision into a home that exceeded all expectations. Their attention to detail and commitment to quality is unmatched."
+                        </div>
+                        <div class="testimonial-author">James & Sarah Thompson</div>
+                        <div class="testimonial-role">Modern Villa Project, Malibu</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-quote">
+                            "From the initial design phase to the final walkthrough, the team was professional, communicative, and truly passionate about creating our dream home."
+                        </div>
+                        <div class="testimonial-author">Michael Rodriguez</div>
+                        <div class="testimonial-role">Urban Loft Renovation, Chicago</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-quote">
+                            "Working with Arcadia Homes was a seamless experience. They listened to our needs, offered creative solutions, and delivered a home that perfectly reflects our lifestyle."
+                        </div>
+                        <div class="testimonial-author">Jennifer Lee</div>
+                        <div class="testimonial-role">Family Estate, Greenwich</div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots" id="sliderDots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                    <div class="dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently <strong>Asked Questions</strong></h2>
+                <p>Find answers to common questions about our process</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does the custom home building process typically take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>The timeline varies based on the complexity and size of the project, but typically ranges from 10 to 18 months. This includes design development, permitting, construction, and final finishes. We provide a detailed timeline during our initial consultation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the typical budget range for a custom home?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Custom homes vary significantly based on location, size, materials, and finishes. Our projects typically range from $500 per square foot for standard finishes to $1,000+ per square foot for luxury specifications. We work within your budget to maximize value and quality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you work with clients' architects or interior designers?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, we frequently collaborate with our clients' chosen architects and designers. Our team has experience working with top design professionals to ensure a cohesive vision and seamless execution from concept to completion.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What makes Arcadia Homes different from other custom builders?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our 20+ years of experience, commitment to craftsmanship, and personalized approach set us apart. We limit the number of projects we take on each year to ensure each client receives our full attention and the highest level of service throughout the entire process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Start Your <strong>Journey</strong></h2>
+                <p>Get in touch to discuss your dream home project</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Contact Information</h3>
+                    <p>Ready to begin your custom home journey? Contact us to schedule a consultation with our team.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Our Office</h4>
+                                <p>123 Design District, Los Angeles, CA 90210</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone Number</h4>
+                                <p>(310) 555-1234</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Address</h4>
+                                <p>info@arcadiahomes.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder=" " required>
+                            <label for="name">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder=" ">
+                            <label for="phone">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder=" " required></textarea>
+                            <label for="message">Project Details</label>
+                        </div>
+                        <div class="submit-btn">
+                            <button type="submit" class="btn btn-gold">Submit Inquiry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Arcadia<span>Homes</span></div>
+                    <p>Building exceptional custom homes with precision, passion, and unparalleled craftsmanship since 2003.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Arcadia Homes. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Loader
+        const pageLoader = document.getElementById('pageLoader');
+        const loaderProgress = document.getElementById('loaderProgress');
+        
+        // Simulate loading progress
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+            progress += Math.random() * 15;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(loadingInterval);
+                
+                // Hide loader after delay
+                setTimeout(() => {
+                    pageLoader.style.opacity = '0';
+                    pageLoader.style.visibility = 'hidden';
+                    
+                    // Start animations after loader is hidden
+                    setTimeout(initAnimations, 300);
+                }, 500);
+            }
+            loaderProgress.style.width = `${progress}%`;
+        }, 100);
+        
+        // Initialize animations after page loads
+        function initAnimations() {
+            // Start typing animation
+            startTypingAnimation();
+            
+            // Initialize particles
+            createParticles();
+            
+            // Initialize scroll animations
+            checkScroll();
+            
+            // Start counter animations
+            animateCounters();
+        }
+        
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorFollower = document.getElementById('cursorFollower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+            
+            setTimeout(() => {
+                cursorFollower.style.left = `${e.clientX}px`;
+                cursorFollower.style.top = `${e.clientY}px`;
+            }, 100);
+        });
+        
+        // Add hover effect to interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .portfolio-item, .service-card, .blog-card, .faq-question');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+        
+        // Floating Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add CSS for floating animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-20px) rotate(180deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Enhanced Typing Animation
+        const typingText = document.getElementById('typingText');
+        const texts = [
+            "Building Your Dream Home",
+            "Crafting Luxury Living Spaces",
+            "Designing Timeless Architecture",
+            "Creating Your Perfect Sanctuary"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isPaused = false;
+        
+        function startTypingAnimation() {
+            const currentText = texts[textIndex];
+            
+            if (!isDeleting && charIndex < currentText.length) {
+                // Typing
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(startTypingAnimation, 80);
+            } else if (isDeleting && charIndex > 0) {
+                // Deleting
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(startTypingAnimation, 40);
+            } else if (!isDeleting && charIndex === currentText.length) {
+                // Pause at the end
+                if (!isPaused) {
+                    isPaused = true;
+                    setTimeout(() => {
+                        isPaused = false;
+                        isDeleting = true;
+                        startTypingAnimation();
+                    }, 2000);
+                }
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next text
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(startTypingAnimation, 500);
+            }
+        }
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Animated Counters with Intersection Observer
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-count');
+                        const count = +counter.innerText;
+                        const increment = target / speed;
+                        
+                        const updateCounter = () => {
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + increment);
+                                setTimeout(updateCounter, 10);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        
+                        updateCounter();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        }
+        
+        // Scroll-triggered Animations with Stagger
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const staggerElements = document.querySelectorAll('.stagger-item');
+            const windowHeight = window.innerHeight;
+            const triggerBottom = windowHeight * 0.85;
+            
+            fadeElements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+            
+            staggerElements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        
+        // Portfolio Filter with Smooth Animation
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach((item, index) => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        setTimeout(() => {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, index * 100);
+                        }, 300);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Portfolio Modal
+        const portfolioModal = document.getElementById('portfolioModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const portfolioZooms = document.querySelectorAll('.portfolio-zoom');
+        
+        portfolioZooms.forEach(zoom => {
+            zoom.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const portfolioItem = zoom.closest('.portfolio-item');
+                const imgSrc = portfolioItem.querySelector('img').src;
+                
+                modalImage.src = imgSrc;
+                portfolioModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        modalClose.addEventListener('click', () => {
+            portfolioModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        portfolioModal.addEventListener('click', (e) => {
+            if (e.target === portfolioModal) {
+                portfolioModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Enhanced Testimonial Slider
+        const testimonialSlides = document.getElementById('testimonialSlides');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+        
+        function showSlide(n) {
+            // Update current slide
+            currentSlide = (n + totalSlides) % totalSlides;
+            
+            // Move slides container
+            testimonialSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update slide classes
+            document.querySelectorAll('.testimonial-slide').forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Event listeners for slider controls
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Event listeners for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto-advance slides every 6 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 6000);
+        
+        // FAQ Accordion with Smooth Animation
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                
+                // Toggle active class
+                if (faqItem.classList.contains('active')) {
+                    faqItem.classList.remove('active');
+                } else {
+                    // Close other FAQ items
+                    faqQuestions.forEach(otherQuestion => {
+                        const otherItem = otherQuestion.parentElement;
+                        if (otherItem !== faqItem && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Open clicked item
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+        
+        // Enhanced Contact Form with Focus Effects
+        const formGroups = document.querySelectorAll('.form-group');
+        
+        formGroups.forEach(group => {
+            const input = group.querySelector('input, textarea');
+            const label = group.querySelector('label');
+            
+            input.addEventListener('focus', () => {
+                group.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    group.classList.remove('focused');
+                }
+            });
+            
+            // Check on page load if input has value
+            if (input.value) {
+                group.classList.add('focused');
+            }
+        });
+        
+        // Contact Form Submission with Animation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Create success message
+            const submitBtn = contactForm.querySelector('.btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.style.pointerEvents = 'none';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success state
+                submitBtn.textContent = '✓ Message Sent!';
+                submitBtn.style.backgroundColor = '#4CAF50';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.pointerEvents = 'auto';
+                    
+                    // Reset the form
+                    contactForm.reset();
+                    
+                    // Reset labels
+                    formGroups.forEach(group => {
+                        group.classList.remove('focused');
+                    });
+                }, 3000);
+            }, 1500);
+        });
+        
+        // Smooth Scrolling with Offset for Header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Parallax Effect on Hero Section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * 0.5;
+            
+            hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+        });
+        
+        // Header scroll effect with transparency
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+        
+        // Initialize scroll animations on load
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>
