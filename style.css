@@ -283,7 +283,7 @@ header.scrolled .nav-menu a {
 }
 
 /* ============================================
-   DROPDOWN (click-based, no redirect)
+   DROPDOWN (desktop hover, mobile click)
    ============================================ */
 .dropdown {
     position: relative;
@@ -301,14 +301,23 @@ header.scrolled .nav-menu a {
     transition: transform 0.3s;
 }
 
-.dropdown.open .dropdown-toggle i {
-    transform: rotate(180deg);
+/* Desktop hover effect */
+@media (min-width: 993px) {
+    .dropdown:hover .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }
 
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -10px;            /* fine-tune to align with text */
+    left: -10px;                /* adjusted to align with text */
     min-width: 260px;
     background: var(--white);
     box-shadow: var(--shadow-dark);
@@ -319,12 +328,6 @@ header.scrolled .nav-menu a {
     transform: translateY(20px);
     transition: var(--transition);
     z-index: 1000;
-}
-
-.dropdown.open .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .dropdown-menu li {
@@ -346,7 +349,7 @@ header.scrolled .nav-menu a {
     padding-left: 30px;
 }
 
-/* Mobile dropdown (accordion style) */
+/* Mobile styles: click toggles, no redirect */
 @media (max-width: 992px) {
     .dropdown-menu {
         position: static;
@@ -359,13 +362,25 @@ header.scrolled .nav-menu a {
         overflow: hidden;
         transition: max-height 0.4s ease;
         background: transparent;
+        margin-top: 10px;
     }
+
     .dropdown.open .dropdown-menu {
-        max-height: 500px; /* enough to show all items */
+        max-height: 500px; /* enough for all items */
     }
+
     .dropdown-menu a {
-        padding-left: 40px;
+        padding: 10px 40px;
         color: var(--dark-charcoal) !important;
+        white-space: normal;
+    }
+
+    .dropdown-toggle i {
+        transition: transform 0.3s;
+    }
+
+    .dropdown.open .dropdown-toggle i {
+        transform: rotate(180deg);
     }
 }
 /* ============================================
