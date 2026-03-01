@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Global Pioneers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/60x60/d4af37/ffffff?text=GPC" alt="Global Pioneers" class="logo-img">
+                <span>Global<span>Pioneers</span></span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#architectural">Architectural & Interior Design</a></li>
+                            <li><a href="services.html#plan-designs">2D & 3D Plan Designs</a></li>
+                            <li><a href="services.html#boq">Bill of Quantities (BOQ)</a></li>
+                            <li><a href="services.html#cost-estimates">Construction Cost Estimates</a></li>
+                            <li><a href="services.html#urban-planning">Urban Planning</a></li>
+                            <li><a href="services.html#general-construction">General Construction</a></li>
+                            <li><a href="services.html#roofing">Roofing & Structure Detailing</a></li>
+                            <li><a href="services.html#plumbing">Plumbing Works</a></li>
+                            <li><a href="services.html#finishing">Finishing & Renovation</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Get In Touch</h1>
+        </div>
+
+        <section class="contact-page">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h3>Send us a message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder=" " required>
+                                <label for="name">Full Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder=" " required>
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="phone" placeholder=" ">
+                                <label for="phone">Phone Number</label>
+                            </div>
+                            <div class="form-group">
+                                <select id="service" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option>Architectural & Interior Design</option>
+                                    <option>2D & 3D Plan Designs</option>
+                                    <option>Bill of Quantities (BOQ)</option>
+                                    <option>Construction Cost Estimates</option>
+                                    <option>Urban Planning</option>
+                                    <option>General Construction</option>
+                                    <option>Roofing & Structure Detailing</option>
+                                    <option>Plumbing Works</option>
+                                    <option>Finishing & Renovation</option>
+                                </select>
+                                <label for="service">Service Needed</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" rows="5" placeholder=" "></textarea>
+                                <label for="message">Your Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
+                            <div id="formSuccess" style="display:none; margin-top:20px; color:green; text-align:center;">✓ Thank you! We'll respond within 24 hours.</div>
+                        </form>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Contact Information</h3>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                0983 998 399
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong><br>
+                                +211 983 998 399
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@globalpioneer.com
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Juba, South Sudan<br>
+                                (Also in Wau & Tonj)
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Working Hours</strong><br>
+                                Mon - Sat: 8:00 AM - 6:00 PM
+                            </div>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.429852963374!2d31.579659!3d4.859363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNTEnMzMuNiJOIDMxwqAzNCc0Ny4xIkU!5e0!3m2!1sen!2s!4v1712900000000" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container text-center">
+                <h2>Prefer to email us directly?</h2>
+                <p style="font-size:1.3rem; margin-bottom:30px;">Write to info@globalpioneer.com and we'll get back to you promptly.</p>
+                <a href="mailto:info@globalpioneer.com" class="btn btn-outline-light">Send an Email <i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- same footer -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Global Pioneers Corp</h4>
+                    <p>Designing and building quality structures across South Sudan. From homes to commercial buildings — we deliver trusted results with professional standards.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#architectural">Architectural Design</a></li>
+                        <li><a href="services.html#plan-designs">2D/3D Plans</a></li>
+                        <li><a href="services.html#boq">BOQ Preparation</a></li>
+                        <li><a href="services.html#cost-estimates">Cost Estimates</a></li>
+                        <li><a href="services.html#urban-planning">Urban Planning</a></li>
+                        <li><a href="services.html#general-construction">General Construction</a></li>
+                        <li><a href="services.html#roofing">Roofing</a></li>
+                        <li><a href="services.html#plumbing">Plumbing</a></li>
+                        <li><a href="services.html#finishing">Finishing & Renovation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> 0983 998 399</li>
+                        <li><i class="fas fa-envelope"></i> info@globalpioneer.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Juba, South Sudan (HQ) • Wau • Tonj</li>
+                        <li><i class="fab fa-whatsapp"></i> +211 983 998 399</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Global Pioneers Corporation. All rights reserved. | Juba, South Sudan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
