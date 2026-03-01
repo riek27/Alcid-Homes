@@ -623,10 +623,11 @@ footer {
 }
 
 /* ============================================
-   6. ABOUT PAGE
+   6. ABOUT PAGE (updated for responsiveness)
    ============================================ */
 .page-header {
     height: 50vh;
+    min-height: 300px;
     background: url('https://images.unsplash.com/photo-1577962917302-c4c1b1c8b0b9?q=80&w=1974&auto=format&fit=crop') center/cover fixed;
     display: flex;
     align-items: center;
@@ -646,6 +647,10 @@ footer {
     color: var(--white);
     position: relative;
     z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+    font-size: clamp(2rem, 8vw, 4rem);
 }
 
 .history-section {
@@ -743,6 +748,37 @@ footer {
     border: 4px solid var(--gold);
 }
 
+/* Responsive adjustments for about page */
+@media (max-width: 992px) {
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mv-card {
+        padding: 30px 20px;
+    }
+
+    .experience-dark .stat {
+        font-size: 3rem;
+    }
+
+    .page-header {
+        height: 40vh;
+        min-height: 250px;
+        background-attachment: scroll; /* better performance on mobile */
+    }
+}
 /* ============================================
    7. SERVICES PAGE (cards with images & sub-lists)
    ============================================ */
