@@ -459,7 +459,7 @@ footer {
    ============================================ */
 .hero {
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+    background: url('assets/globalm.jpg') center/cover fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -652,7 +652,7 @@ footer {
 .page-header {
     height: 50vh;
     min-height: 300px;
-    background: url('https://images.unsplash.com/photo-1577962917302-c4c1b1c8b0b9?q=80&w=1974&auto=format&fit=crop') center/cover fixed;
+    background: url('assets/homes.jpg') center/cover fixed;
     display: flex;
     align-items: center;
     justify-content: center;
