@@ -26,30 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---------- Dropdown for mobile (Services) ----------
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(drop => {
-        const toggle = drop.querySelector('.dropdown-toggle');
-        toggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                drop.classList.toggle('active');
-            }
-        });
+    // ---------- Dropdown toggle (click, no redirect) ----------
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+        e.preventDefault();              // stop navigation
+        const dropdown = this.closest('.dropdown');
+        dropdown.classList.toggle('open');
     });
+});
 
-    // Close mobile menu when a link is clicked (for single page anchors)
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                const icon = mobileBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+// Close dropdown when clicking outside (optional, improves UX)
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown.open').forEach(drop => {
+            drop.classList.remove('open');
         });
-    });
-
+    }
+});
     // ---------- Read more / less (blog) ----------
     const readMoreBtns = document.querySelectorAll('.read-more-btn');
     readMoreBtns.forEach(btn => {
